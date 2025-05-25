@@ -13,7 +13,7 @@ fn get_keys() -> ([u8;16], [u8;16]){
     let nid = openssl::nid::Nid::X9_62_PRIME256V1;
     let group = openssl::ec::EcGroup::from_curve_name(nid).expect("Failed to create EC group from the curve name");
     let key = openssl::ec::EcKey::generate(&group).expect("Failed to generate group");
-    let mut ctx = openssl::bn::BigNumContext::new().expect("Failed making context");
+    let _ctx = openssl::bn::BigNumContext::new().expect("Failed making context");
     let private_key = key.private_key().to_vec();
     let iv = key.private_key().to_vec();
     
